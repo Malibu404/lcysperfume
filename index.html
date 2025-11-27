@@ -1,724 +1,1263 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LCYS Authentic Skincares & Perfumes</title>
-    <meta name="description" content="Discover your signature scent at Scented Aura. Premium luxury perfumes crafted for the discerning individual.">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764134403/viber_image_2025-11-26_10-34-19-606_imhgdw.jpg">
+    <meta
+      name="description"
+      content="Discover your signature scent at Scented Aura. Premium luxury perfumes crafted for the discerning individual."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764134403/viber_image_2025-11-26_10-34-19-606_imhgdw.jpg"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'inter': ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        'luxury-black': '#0d0d0d',
-                        'luxury-card': '#111827',
-                        'luxury-border': '#1f2937',
-                    },
-                    animation: {
-                        'spin-slow': 'spin 20s linear infinite',
-                        'marquee': 'marquee 20s linear infinite',
-                    },
-                    keyframes: {
-                        marquee: {
-                            '0%': { transform: 'translateX(0%)' },
-                            '100%': { transform: 'translateX(-50%)' },
-                        }
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+            },
+            colors: {
+              "luxury-black": "#0d0d0d",
+              "luxury-card": "#111827",
+              "luxury-border": "#1f2937",
+            },
+            animation: {
+              "spin-slow": "spin 20s linear infinite",
+              marquee: "marquee 20s linear infinite",
+            },
+            keyframes: {
+              marquee: {
+                "0%": { transform: "translateX(0%)" },
+                "100%": { transform: "translateX(-50%)" },
+              },
+            },
+          },
+        },
+      };
     </script>
     <style>
-        * {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        body {
-            background-color: #0d0d0d;
-        }
-        
-        .glassmorphism {
-            background: rgba(13, 13, 13, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.5s ease-out;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #fff, transparent);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-        
-        .hero-logo {
-            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
-        }
-        
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-        }
-        
-        .marquee-container {
-            overflow: hidden;
-            white-space: nowrap;
-        }
-        
-        .marquee-content {
-            display: inline-block;
-            animation: marquee 20s linear infinite;
-        }
-        
-        .logo-ring {
-            animation: spin 20s linear infinite;
-        }
-        
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        .applogo {
-          width: 80px;
-          height: auto;
-        }
-        
-        .logozz {
-          width: 37px;
-          height: auto;
-        }
-        
-        .card-container {
-    position: relative;
-    width: 350px;
-    height: 200px;
-    background: linear-gradient(145deg, #1a1a1a, #000000);
-    border-radius: 18px;
-    border: 1px solid rgba(255, 215, 0, 0.35);
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.18);
-    overflow: hidden;
-    text-align: center;
-    padding-top: 20px;
-  }
+      * {
+        font-family: "Inter", sans-serif;
+      }
 
-  #scratch {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #b8b8b8, #e0e0e0);
-    cursor: grab;
-  }
+      body {
+        background-color: #0d0d0d;
+      }
 
-  #resultText {
-    font-size: 22px;
-    font-weight: 600;
-    opacity: 0;
-    transition: 0.7s;
-    padding: 20px;
-    color: #f5f5f5;
-    line-height: 1.4;
-  }
+      .glassmorphism {
+        background: rgba(13, 13, 13, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
 
-  .show {
-    opacity: 1 !important;
-    animation: fadeIn 0.8s ease-out;
-  }
+      .tab-content {
+        display: none;
+        animation: fadeIn 0.5s ease-out;
+      }
 
-  @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(10px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
-  
-  canvas {
-  touch-action: none; /* prevents default gestures */
-  -ms-touch-action: none;
-}
+      .tab-content.active {
+        display: block;
+      }
 
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #fff, transparent);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      .hero-logo {
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.03) 0%,
+          transparent 70%
+        );
+      }
+
+      .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card-hover:hover {
+        transform: scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      }
+
+      .marquee-container {
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      .marquee-content {
+        display: inline-block;
+        animation: marquee 20s linear infinite;
+      }
+
+      .logo-ring {
+        animation: spin 20s linear infinite;
+      }
+
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .applogo {
+        width: 80px;
+        height: auto;
+      }
+
+      .logozz {
+        width: 37px;
+        height: auto;
+      }
+
+      .card-container {
+        position: relative;
+        width: 350px;
+        height: 200px;
+        background: linear-gradient(145deg, #1a1a1a, #000000);
+        border-radius: 18px;
+        border: 1px solid rgba(255, 215, 0, 0.35);
+        box-shadow: 0 0 25px rgba(255, 215, 0, 0.18);
+        overflow: hidden;
+        text-align: center;
+        padding-top: 20px;
+      }
+
+      #scratch {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #b8b8b8, #e0e0e0);
+        cursor: grab;
+      }
+
+      #resultText {
+        font-size: 22px;
+        font-weight: 600;
+        opacity: 0;
+        transition: 0.7s;
+        padding: 20px;
+        color: #f5f5f5;
+        line-height: 1.4;
+      }
+
+      .show {
+        opacity: 1 !important;
+        animation: fadeIn 0.8s ease-out;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      canvas {
+        touch-action: none; /* prevents default gestures */
+        -ms-touch-action: none;
+      }
     </style>
-</head>
-<body class="bg-luxury-black text-gray-100 min-h-screen font-inter">
+  </head>
+  <body class="bg-luxury-black text-gray-100 min-h-screen font-inter">
     <header class="fixed top-0 left-0 right-0 z-50 glassmorphism">
-        <div class="max-w-7xl mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <img class="applogo" src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764139790/viber_image_2025-11-26_13-17-03-201-removebg-preview_slaryw.png"></img>
-                        <circle cx="20" cy="20" r="18" stroke="url(#logoGradient)" stroke-width="1.5" fill="none"/>
-                        <circle cx="20" cy="20" r="12" stroke="url(#logoGradient)" stroke-width="1" fill="none" opacity="0.5"/>
-                        <circle cx="20" cy="20" r="6" fill="url(#logoGradient)" opacity="0.3"/>
-                        <defs>
-                            <linearGradient id="logoGradient" x1="0" y1="0" x2="40" y2="40">
-                                <stop offset="0%" stop-color="#f9fafb"/>
-                                <stop offset="100%" stop-color="#6b7280"/>
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                    <span class="text-xl font-light tracking-[0.3em] uppercase">lcys authentic skincare & perfume</span>
-                </div>
-                
-                <nav class="hidden md:flex items-center gap-8">
-                    <button onclick="showTab('home')" class="nav-link active text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors" data-tab="home">Home</button>
-                    <button onclick="showTab('promotions')" class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors" data-tab="promotions">Promotions</button>
-                    <button onclick="showTab('items')" class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors" data-tab="items">Items</button>
-                    <button onclick="showTab('about')" class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors" data-tab="about">About Us</button>
-                </nav>
-                
-                <button onclick="toggleMobileMenu()" class="md:hidden text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-            </div>
-            
-            <nav id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-800 pt-4">
-                <div class="flex flex-col gap-4">
-                    <button onclick="showTab('home'); toggleMobileMenu()" class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors text-left" data-tab="home">Home</button>
-                    <button onclick="showTab('promotions'); toggleMobileMenu()" class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors text-left" data-tab="promotions">Promotions</button>
-                    <button onclick="showTab('items'); toggleMobileMenu()" class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors text-left" data-tab="items">Items</button>
-                    <button onclick="showTab('about'); toggleMobileMenu()" class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors text-left" data-tab="about">About Us</button>
-                </div>
-            </nav>
+      <div class="max-w-7xl mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <img
+              class="applogo"
+              src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764139790/viber_image_2025-11-26_13-17-03-201-removebg-preview_slaryw.png"
+            />
+            <circle
+              cx="20"
+              cy="20"
+              r="18"
+              stroke="url(#logoGradient)"
+              stroke-width="1.5"
+              fill="none"
+            />
+            <circle
+              cx="20"
+              cy="20"
+              r="12"
+              stroke="url(#logoGradient)"
+              stroke-width="1"
+              fill="none"
+              opacity="0.5"
+            />
+            <circle
+              cx="20"
+              cy="20"
+              r="6"
+              fill="url(#logoGradient)"
+              opacity="0.3"
+            />
+            <defs>
+              <linearGradient id="logoGradient" x1="0" y1="0" x2="40" y2="40">
+                <stop offset="0%" stop-color="#f9fafb" />
+                <stop offset="100%" stop-color="#6b7280" />
+              </linearGradient>
+            </defs>
+
+            <span class="text-xl font-light tracking-[0.3em] uppercase"
+              >lcys authentic skincare & perfume</span
+            >
+          </div>
+
+          <nav class="hidden md:flex items-center gap-8">
+            <button
+              onclick="showTab('home')"
+              class="nav-link active text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors"
+              data-tab="home"
+            >
+              Home
+            </button>
+            <button
+              onclick="showTab('promotions')"
+              class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors"
+              data-tab="promotions"
+            >
+              Promotions
+            </button>
+            <button
+              onclick="showTab('items')"
+              class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors"
+              data-tab="items"
+            >
+              Items
+            </button>
+            <button
+              onclick="showTab('about')"
+              class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors"
+              data-tab="about"
+            >
+              About Us
+            </button>
+          </nav>
+
+          <button onclick="toggleMobileMenu()" class="md:hidden text-white">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
         </div>
+
+        <nav
+          id="mobileMenu"
+          class="hidden md:hidden mt-4 pb-4 border-t border-gray-800 pt-4"
+        >
+          <div class="flex flex-col gap-4">
+            <button
+              onclick="showTab('home'); toggleMobileMenu()"
+              class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors text-left"
+              data-tab="home"
+            >
+              Home
+            </button>
+            <button
+              onclick="showTab('promotions'); toggleMobileMenu()"
+              class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors text-left"
+              data-tab="promotions"
+            >
+              Promotions
+            </button>
+            <button
+              onclick="showTab('items'); toggleMobileMenu()"
+              class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors text-left"
+              data-tab="items"
+            >
+              Items
+            </button>
+            <button
+              onclick="showTab('about'); toggleMobileMenu()"
+              class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors text-left"
+              data-tab="about"
+            >
+              About Us
+            </button>
+          </div>
+        </nav>
+      </div>
     </header>
 
     <main class="pt-20">
-        <section id="home" class="tab-content active">
-            <div class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div class="logo-ring w-[600px] h-[600px] md:w-[800px] md:h-[800px] opacity-[0.03]">
-                        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="200" cy="200" r="195" stroke="white" stroke-width="0.5"/>
-                            <circle cx="200" cy="200" r="150" stroke="white" stroke-width="0.5"/>
-                            <circle cx="200" cy="200" r="100" stroke="white" stroke-width="0.5"/>
-                            <circle cx="200" cy="200" r="50" stroke="white" stroke-width="0.5"/>
-                            <line x1="200" y1="5" x2="200" y2="395" stroke="white" stroke-width="0.3"/>
-                            <line x1="5" y1="200" x2="395" y2="200" stroke="white" stroke-width="0.3"/>
-                            <line x1="58" y1="58" x2="342" y2="342" stroke="white" stroke-width="0.3"/>
-                            <line x1="342" y1="58" x2="58" y2="342" stroke="white" stroke-width="0.3"/>
-                        </svg>
-                    </div>
-                </div>
-                
-                <div class="relative z-10 text-center px-6">
-                    <p class="text-gray-500 tracking-[0.5em] uppercase text-xs mb-6">Luxury Skincares & Fragrances</p>
-                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-light tracking-[0.2em] uppercase mb-8">
-                        Find Your<br/><span class="font-semibold">Aura</span>
-                    </h1>
-                    <p class="text-gray-400 max-w-md mx-auto mb-10 leading-relaxed">
-                        We’ve been a trusted skincare store for three years, and we’re excited to expand with our new perfume counter. Enjoy great service and shop with confidence — all our perfumes are guaranteed authentic.
-                    </p>
-                    <button onclick="showTab('items')" class="px-10 py-4 border border-gray-600 text-sm tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all duration-500">
-                        Explore Collection
-                    </button>
-                </div>
+      <section id="home" class="tab-content active">
+        <div
+          class="relative min-h-[90vh] flex items-center justify-center overflow-hidden"
+        >
+          <div
+            class="absolute inset-0 flex items-center justify-center pointer-events-none"
+          >
+            <div
+              class="logo-ring w-[600px] h-[600px] md:w-[800px] md:h-[800px] opacity-[0.03]"
+            >
+              <svg
+                viewBox="0 0 400 400"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="200"
+                  cy="200"
+                  r="195"
+                  stroke="white"
+                  stroke-width="0.5"
+                />
+                <circle
+                  cx="200"
+                  cy="200"
+                  r="150"
+                  stroke="white"
+                  stroke-width="0.5"
+                />
+                <circle
+                  cx="200"
+                  cy="200"
+                  r="100"
+                  stroke="white"
+                  stroke-width="0.5"
+                />
+                <circle
+                  cx="200"
+                  cy="200"
+                  r="50"
+                  stroke="white"
+                  stroke-width="0.5"
+                />
+                <line
+                  x1="200"
+                  y1="5"
+                  x2="200"
+                  y2="395"
+                  stroke="white"
+                  stroke-width="0.3"
+                />
+                <line
+                  x1="5"
+                  y1="200"
+                  x2="395"
+                  y2="200"
+                  stroke="white"
+                  stroke-width="0.3"
+                />
+                <line
+                  x1="58"
+                  y1="58"
+                  x2="342"
+                  y2="342"
+                  stroke="white"
+                  stroke-width="0.3"
+                />
+                <line
+                  x1="342"
+                  y1="58"
+                  x2="58"
+                  y2="342"
+                  stroke="white"
+                  stroke-width="0.3"
+                />
+              </svg>
             </div>
-            
-            <div class="border-y border-gray-800 py-4 marquee-container">
-                <marquee class="marquee-content">
-                    <span class="inline-block mx-8 text-gray-600 tracking-[0.5em] uppercase text-sm">Luxury Perfumes</span>
-                    <span class="inline-block mx-8 text-gray-700">◆</span>
-                    <span class="inline-block mx-8 text-gray-600 tracking-[0.5em] uppercase text-sm">Authentic Skincares</span>
-                    <span class="inline-block mx-8 text-gray-700">◆</span>
-                    <span class="inline-block mx-8 text-gray-600 tracking-[0.5em] uppercase text-sm">Branded Cosmetics</span>
-                    <span class="inline-block mx-8 text-gray-700">◆</span>
-                    <span class="inline-block mx-8 text-gray-600 tracking-[0.5em] uppercase text-sm">Timeless Elegance</span>
-                    <span class="inline-block mx-8 text-gray-700">◆</span>
-                    <span class="inline-block mx-8 text-gray-600 tracking-[0.5em] uppercase text-sm">Premium Quality</span>
-                    <span class="inline-block mx-8 text-gray-700">◆</span>
-                    <span class="inline-block mx-8 text-gray-600 tracking-[0.5em] uppercase text-sm">Designer's Products</span>
-                    <span class="inline-block mx-8 text-gray-700">◆</span>
-                    <span class="inline-block mx-8 text-gray-600 tracking-[0.5em] uppercase text-sm">Exclusive Scents</span>
-                    <span class="inline-block mx-8 text-gray-700">◆</span>
-                    <span class="inline-block mx-8 text-gray-600 tracking-[0.5em] uppercase text-sm">Artisan Crafted</span>
-                    <span class="inline-block mx-8 text-gray-700">◆</span>
-                    <span class="inline-block mx-8 text-gray-600 tracking-[0.5em] uppercase text-sm">UAE Dupes</span>
-                    <span class="inline-block mx-8 text-gray-700">◆</span>
-                    <span class="inline-block mx-8 text-gray-600 tracking-[0.5em] uppercase text-sm">Limited Editions</span>
-                    <span class="inline-block mx-8 text-gray-700">◆</span>
-                </marquee>
-            </div>
-            
-            <div class="max-w-7xl mx-auto px-6 py-24">
-                <div class="text-center mb-16">
-                    <p class="text-gray-500 tracking-[0.5em] uppercase text-xs mb-4">Curated Selection</p>
-                    <h2 class="text-3xl md:text-4xl font-light tracking-[0.1em] uppercase">Featured Items</h2>
-                </div>
-                
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group">
-                        <div class="aspect-[3/4] bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                            <img src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764141822/maison_francis_kurkdjian_baccarat_rouge_540_sqhrlq.jpg" alt="Midnight Oud Perfume Bottle" class="w-full h-full object-cover" width="400" height="533">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg tracking-widest uppercase mb-2">Baccarat Rouge 540</h3>
-                            <p class="text-gray-500 text-sm mb-4">Deep almond notes with amber undertones</p>
-                            <p class="text-xl font-light">Maison Francis Kurkdjian</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group">
-                        <div class="aspect-[3/4] bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                            <img src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764143299/13183900_fpx_awmlnq.jpg" alt="Velvet Rose Perfume Bottle" class="w-full h-full object-cover" width="400" height="533">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg tracking-widest uppercase mb-2">SK-II PITERA™</h3>
-                            <p class="text-gray-500 text-sm mb-4">Bestseller Set</p>
-                            <p class="text-xl font-light">SK-II</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group">
-                        <div class="aspect-[3/4] bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                            <img src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764143570/SG-SupersonicNural-AmberSilk-BeautyEmblem-DailyVanity_pyqx0n.jpg" alt="Citrus Noir Perfume Bottle" class="w-full h-full object-cover" width="400" height="533">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg tracking-widest uppercase mb-2">Dyson Supersonic Nural™ hair dryer (Amber silk)</h3>
-                            <p class="text-gray-500 text-sm mb-4">Engineered for healthy hair, a healthy scalp, and to protect new hair growth</p>
-                            <p class="text-xl font-light">Dyson</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+          </div>
 
-        <section id="promotions" class="tab-content">
-            <div class="max-w-7xl mx-auto px-6 py-24">
-                <div class="text-center mb-16">
-                    <p class="text-gray-500 tracking-[0.5em] uppercase text-xs mb-4">Limited Time</p>
-                    <h2 class="text-3xl md:text-4xl font-light tracking-[0.1em] uppercase">Exclusive Offers</h2>
-                </div>
-                
-                <!-- SCRATCH CARD (Luxury Edition) -->
-<div id="scratchCardWrapper" class="flex justify-center mt-10">
-  <div class="card-container">
-      <div id="resultText"></div>
-      <canvas id="scratch"></canvas>
-  </div>
-</div>
+          <div class="relative z-10 text-center px-6">
+            <p class="text-gray-500 tracking-[0.5em] uppercase text-xs mb-6">
+              Luxury Skincares & Fragrances
+            </p>
+            <h1
+              class="text-5xl md:text-7xl lg:text-8xl font-light tracking-[0.2em] uppercase mb-8"
+            >
+              Find Your<br /><span class="font-semibold">Aura</span>
+            </h1>
+            <p class="text-gray-400 max-w-md mx-auto mb-10 leading-relaxed">
+              We’ve been a trusted skincare store for three years, and we’re
+              excited to expand with our new perfume counter. Enjoy great
+              service and shop with confidence — all our perfumes are guaranteed
+              authentic.
+            </p>
+            <button
+              onclick="showTab('items')"
+              class="px-10 py-4 border border-gray-600 text-sm tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all duration-500"
+            >
+              Explore Collection
+            </button>
+          </div>
+        </div>
 
-            </div>
-        </section>
+        <div class="border-y border-gray-800 py-4 marquee-container">
+          <marquee class="marquee-content">
+            <span
+              class="inline-block mx-8 text-gray-600 tracking-[0.5em] uppercase text-sm"
+              >Luxury Perfumes</span
+            >
+            <span class="inline-block mx-8 text-gray-700">◆</span>
+            <span
+              class="inline-block mx-8 text-gray-600 tracking-[0.5em] uppercase text-sm"
+              >Authentic Skincares</span
+            >
+            <span class="inline-block mx-8 text-gray-700">◆</span>
+            <span
+              class="inline-block mx-8 text-gray-600 tracking-[0.5em] uppercase text-sm"
+              >Branded Cosmetics</span
+            >
+            <span class="inline-block mx-8 text-gray-700">◆</span>
+            <span
+              class="inline-block mx-8 text-gray-600 tracking-[0.5em] uppercase text-sm"
+              >Timeless Elegance</span
+            >
+            <span class="inline-block mx-8 text-gray-700">◆</span>
+            <span
+              class="inline-block mx-8 text-gray-600 tracking-[0.5em] uppercase text-sm"
+              >Premium Quality</span
+            >
+            <span class="inline-block mx-8 text-gray-700">◆</span>
+            <span
+              class="inline-block mx-8 text-gray-600 tracking-[0.5em] uppercase text-sm"
+              >Designer's Products</span
+            >
+            <span class="inline-block mx-8 text-gray-700">◆</span>
+            <span
+              class="inline-block mx-8 text-gray-600 tracking-[0.5em] uppercase text-sm"
+              >Exclusive Scents</span
+            >
+            <span class="inline-block mx-8 text-gray-700">◆</span>
+            <span
+              class="inline-block mx-8 text-gray-600 tracking-[0.5em] uppercase text-sm"
+              >Artisan Crafted</span
+            >
+            <span class="inline-block mx-8 text-gray-700">◆</span>
+            <span
+              class="inline-block mx-8 text-gray-600 tracking-[0.5em] uppercase text-sm"
+              >UAE Dupes</span
+            >
+            <span class="inline-block mx-8 text-gray-700">◆</span>
+            <span
+              class="inline-block mx-8 text-gray-600 tracking-[0.5em] uppercase text-sm"
+              >Limited Editions</span
+            >
+            <span class="inline-block mx-8 text-gray-700">◆</span>
+          </marquee>
+        </div>
 
-        <section id="items" class="tab-content">
-            <div class="max-w-7xl mx-auto px-6 py-24">
-                <div class="text-center mb-16">
-                    <p class="text-gray-500 tracking-[0.5em] uppercase text-xs mb-4">Our Collection</p>
-                    <h2 class="text-3xl md:text-4xl font-light tracking-[0.1em] uppercase">All Fragrances</h2>
-                </div>
-                
-                <div class="flex flex-wrap justify-center gap-4 mb-12">
-                    <button class="px-6 py-2 border border-white text-sm tracking-[0.2em] uppercase">All</button>
-                    <button class="px-6 py-2 border border-gray-700 text-gray-400 text-sm tracking-[0.2em] uppercase hover:border-gray-500 transition-colors">Floral</button>
-                    <button class="px-6 py-2 border border-gray-700 text-gray-400 text-sm tracking-[0.2em] uppercase hover:border-gray-500 transition-colors">Woody</button>
-                    <button class="px-6 py-2 border border-gray-700 text-gray-400 text-sm tracking-[0.2em] uppercase hover:border-gray-500 transition-colors">Oriental</button>
-                    <button class="px-6 py-2 border border-gray-700 text-gray-400 text-sm tracking-[0.2em] uppercase hover:border-gray-500 transition-colors">Fresh</button>
-                </div>
-                
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group">
-                        <div class="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                            <img src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764146909/OIP_nqgnwf.jpg" alt="Midnight Oud Perfume" class="w-full h-full object-cover" width="300" height="300">
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-sm tracking-widest uppercase mb-1">Le Male Elixir</h3>
-                            <p class="text-gray-500 text-xs mb-2">100ml Eau de Parfum</p>
-                            <p class="text-lg font-light">Jean Paul Gaultter</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group">
-                        <div class="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                            <img src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764147336/611841-02_wuih7q.webp" alt="Velvet Rose Perfume" class="w-full h-full object-cover" width="300" height="300">
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-sm tracking-widest uppercase mb-1">Chanel Chance</h3>
-                            <p class="text-gray-500 text-xs mb-2">100ml Eau de Toilette</p>
-                            <p class="text-lg font-light">Chanel</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group">
-                        <div class="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                            <img src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764147752/OIP_1_bezrzr.webp" alt="Citrus Noir Perfume" class="w-full h-full object-cover" width="300" height="300">
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-sm tracking-widest uppercase mb-1">Baccarat Rouge 540</h3>
-                            <p class="text-gray-500 text-xs mb-2">30ml Eau de Parfum</p>
-                            <p class="text-lg font-light">Maison Francis Kurkdjian</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group">
-                        <div class="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                            <img src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764148113/OIF_ihz95n.webp" alt="Amber Dreams Perfume" class="w-full h-full object-cover" width="300" height="300">
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-sm tracking-widest uppercase mb-1">Club de Nuit Precieux I</h3>
-                            <p class="text-gray-500 text-xs mb-2">100ml Eau de Parfum</p>
-                            <p class="text-lg font-light">Armaf</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group">
-                        <div class="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                            <img src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764151560/OIP_2_qczl4z.webp" alt="Jasmine Mist Perfume" class="w-full h-full object-cover" width="300" height="300">
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-sm tracking-widest uppercase mb-1">9PM Edp</h3>
-                            <p class="text-gray-500 text-xs mb-2">100ml Eau de Parfum</p>
-                            <p class="text-lg font-light">Afnan</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group">
-                        <div class="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                            <img src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764158909/OIP_3_aqzp25.webp" alt="Sandalwood Essence Perfume" class="w-full h-full object-cover" width="300" height="300">
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-sm tracking-widest uppercase mb-1">YSL Y Edp</h3>
-                            <p class="text-gray-500 text-xs mb-2">100ml Eau de Parfum</p>
-                            <p class="text-lg font-light">Yves Saint Laurent</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group">
-                        <div class="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                            <img src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764159139/th_ezetfx.webp" alt="Ocean Breeze Perfume" class="w-full h-full object-cover" width="300" height="300">
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-sm tracking-widest uppercase mb-1">Midnight Fantasy</h3>
-                            <p class="text-gray-500 text-xs mb-2">100ml Eau de Parfum</p>
-                            <p class="text-lg font-light">Britney Spears</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group">
-                        <div class="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                            <img src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764159262/download_dis1il.webp" alt="Leather & Spice Perfume" class="w-full h-full object-cover" width="300" height="300">
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-sm tracking-widest uppercase mb-1">Stronger With You Absolutely</h3>
-                            <p class="text-gray-500 text-xs mb-2">100ml Eau de Parfum</p>
-                            <p class="text-lg font-light">Emporio Armani</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class="max-w-7xl mx-auto px-6 py-24">
+          <div class="text-center mb-16">
+            <p class="text-gray-500 tracking-[0.5em] uppercase text-xs mb-4">
+              Curated Selection
+            </p>
+            <h2
+              class="text-3xl md:text-4xl font-light tracking-[0.1em] uppercase"
+            >
+              Featured Items
+            </h2>
+          </div>
 
-        <section id="about" class="tab-content">
-            <div class="max-w-7xl mx-auto px-6 py-24">
-                <div class="text-center mb-16">
-                    <p class="text-gray-500 tracking-[0.5em] uppercase text-xs mb-4">Our Story</p>
-                    <h2 class="text-3xl md:text-4xl font-light tracking-[0.1em] uppercase">About LCYS Co.ltd</h2>
-                </div>
-                
-                <div class="max-w-3xl mx-auto text-center mb-24">
-                    <p class="text-gray-400 leading-loose text-lg mb-8">
-LCYS Authentic Skincare was founded in 2022 as an online store. In 2024, we expanded by opening our first local store in Taunggyi. By 2025, we officially registered as LCYS Co., Ltd. and began importing and retailing high-quality skincare and cosmetic products, providing customers with the best possible service.                    </p>
-                    <p class="text-gray-400 leading-loose">
-In December 2025, we are further expanding our business with the launch of our perfume counter, where we will offer a curated selection of luxury fragrances. With this new addition, LCYS aims to deliver an even higher level of service and an enhanced shopping experience for all our customers.                    </p>
-                </div>
-                
-                <div class="grid md:grid-cols-3 gap-8 mb-24">
-                    <div class="card-hover bg-gray-900 border border-gray-800 rounded-sm p-8 text-center">
-                        <div class="w-16 h-16 mx-auto mb-6 border border-gray-700 rounded-full flex items-center justify-center">
-                            <svg class="w-8 h-8 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg tracking-widest uppercase mb-3">Artisan Crafted</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">
-                            Every fragrance is hand-blended by master perfumers with decades of experience.
-                        </p>
-                    </div>
-                    
-                    <div class="card-hover bg-gray-900 border border-gray-800 rounded-sm p-8 text-center">
-                        <div class="w-16 h-16 mx-auto mb-6 border border-gray-700 rounded-full flex items-center justify-center">
-                            <svg class="w-8 h-8 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg tracking-widest uppercase mb-3">Sustainably Sourced</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">
-                            We partner with ethical suppliers who share our commitment to environmental responsibility.
-                        </p>
-                    </div>
-                    
-                    <div class="card-hover bg-gray-900 border border-gray-800 rounded-sm p-8 text-center">
-                        <div class="w-16 h-16 mx-auto mb-6 border border-gray-700 rounded-full flex items-center justify-center">
-                            <svg class="w-8 h-8 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg tracking-widest uppercase mb-3">Made with Love</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">
-                            Passion drives everything we do, from creation to the moment you experience our scents.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-900 border border-gray-800 rounded-sm p-8 md:p-12 text-center">
-                    <h3 class="text-2xl tracking-widest uppercase mb-4">Get in Touch</h3>
-                    <p class="text-gray-500 mb-8 max-w-lg mx-auto">
-                        Have questions about our items or need personalized recommendations? Our fragrance experts are here to help.
-                    </p>
-                    <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-                        <a href="mailto:hello@scentedaura.com" class="text-gray-400 hover:text-white transition-colors tracking-widest">
-                            lcys.myanmar@gmail.com
-                        </a>
-                        <span class="hidden md:inline text-gray-700">|</span>
-                        <span class="text-gray-400 tracking-widest">+95944406646</span>
-                    </div>
-                </div>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div
+              class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group"
+            >
+              <div
+                class="aspect-[3/4] bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center"
+              >
+                <img
+                  src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764141822/maison_francis_kurkdjian_baccarat_rouge_540_sqhrlq.jpg"
+                  alt="Midnight Oud Perfume Bottle"
+                  class="w-full h-full object-cover"
+                  width="400"
+                  height="533"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-lg tracking-widest uppercase mb-2">
+                  Baccarat Rouge 540
+                </h3>
+                <p class="text-gray-500 text-sm mb-4">
+                  Deep almond notes with amber undertones
+                </p>
+                <p class="text-xl font-light">Maison Francis Kurkdjian</p>
+              </div>
             </div>
-        </section>
+
+            <div
+              class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group"
+            >
+              <div
+                class="aspect-[3/4] bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center"
+              >
+                <img
+                  src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764143299/13183900_fpx_awmlnq.jpg"
+                  alt="Velvet Rose Perfume Bottle"
+                  class="w-full h-full object-cover"
+                  width="400"
+                  height="533"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-lg tracking-widest uppercase mb-2">
+                  SK-II PITERA™
+                </h3>
+                <p class="text-gray-500 text-sm mb-4">Bestseller Set</p>
+                <p class="text-xl font-light">SK-II</p>
+              </div>
+            </div>
+
+            <div
+              class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group"
+            >
+              <div
+                class="aspect-[3/4] bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center"
+              >
+                <img
+                  src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764143570/SG-SupersonicNural-AmberSilk-BeautyEmblem-DailyVanity_pyqx0n.jpg"
+                  alt="Citrus Noir Perfume Bottle"
+                  class="w-full h-full object-cover"
+                  width="400"
+                  height="533"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-lg tracking-widest uppercase mb-2">
+                  Dyson Supersonic Nural™ hair dryer (Amber silk)
+                </h3>
+                <p class="text-gray-500 text-sm mb-4">
+                  Engineered for healthy hair, a healthy scalp, and to protect
+                  new hair growth
+                </p>
+                <p class="text-xl font-light">Dyson</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="promotions" class="tab-content">
+        <div class="max-w-7xl mx-auto px-6 py-24">
+          <div class="text-center mb-16">
+            <p class="text-gray-500 tracking-[0.5em] uppercase text-xs mb-4">
+              Limited Time
+            </p>
+            <h2
+              class="text-3xl md:text-4xl font-light tracking-[0.1em] uppercase"
+            >
+              Exclusive Offers
+            </h2>
+          </div>
+
+          <!-- SCRATCH CARD (Luxury Edition) -->
+          <div id="scratchCardWrapper" class="flex justify-center mt-10">
+            <div class="card-container">
+              <div id="resultText"></div>
+              <canvas id="scratch"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="items" class="tab-content">
+        <div class="max-w-7xl mx-auto px-6 py-24">
+          <div class="text-center mb-16">
+            <p class="text-gray-500 tracking-[0.5em] uppercase text-xs mb-4">
+              Our Collection
+            </p>
+            <h2
+              class="text-3xl md:text-4xl font-light tracking-[0.1em] uppercase"
+            >
+              All Fragrances
+            </h2>
+          </div>
+
+          <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <button
+              class="px-6 py-2 border border-white text-sm tracking-[0.2em] uppercase"
+            >
+              All
+            </button>
+            <button
+              class="px-6 py-2 border border-gray-700 text-gray-400 text-sm tracking-[0.2em] uppercase hover:border-gray-500 transition-colors"
+            >
+              Floral
+            </button>
+            <button
+              class="px-6 py-2 border border-gray-700 text-gray-400 text-sm tracking-[0.2em] uppercase hover:border-gray-500 transition-colors"
+            >
+              Woody
+            </button>
+            <button
+              class="px-6 py-2 border border-gray-700 text-gray-400 text-sm tracking-[0.2em] uppercase hover:border-gray-500 transition-colors"
+            >
+              Oriental
+            </button>
+            <button
+              class="px-6 py-2 border border-gray-700 text-gray-400 text-sm tracking-[0.2em] uppercase hover:border-gray-500 transition-colors"
+            >
+              Fresh
+            </button>
+          </div>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div
+              class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group"
+            >
+              <div
+                class="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center"
+              >
+                <img
+                  src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764146909/OIP_nqgnwf.jpg"
+                  alt="Midnight Oud Perfume"
+                  class="w-full h-full object-cover"
+                  width="300"
+                  height="300"
+                />
+              </div>
+              <div class="p-4">
+                <h3 class="text-sm tracking-widest uppercase mb-1">
+                  Le Male Elixir
+                </h3>
+                <p class="text-gray-500 text-xs mb-2">100ml Eau de Parfum</p>
+                <p class="text-lg font-light">Jean Paul Gaultter</p>
+              </div>
+            </div>
+
+            <div
+              class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group"
+            >
+              <div
+                class="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center"
+              >
+                <img
+                  src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764147336/611841-02_wuih7q.webp"
+                  alt="Velvet Rose Perfume"
+                  class="w-full h-full object-cover"
+                  width="300"
+                  height="300"
+                />
+              </div>
+              <div class="p-4">
+                <h3 class="text-sm tracking-widest uppercase mb-1">
+                  Chanel Chance
+                </h3>
+                <p class="text-gray-500 text-xs mb-2">100ml Eau de Toilette</p>
+                <p class="text-lg font-light">Chanel</p>
+              </div>
+            </div>
+
+            <div
+              class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group"
+            >
+              <div
+                class="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center"
+              >
+                <img
+                  src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764147752/OIP_1_bezrzr.webp"
+                  alt="Citrus Noir Perfume"
+                  class="w-full h-full object-cover"
+                  width="300"
+                  height="300"
+                />
+              </div>
+              <div class="p-4">
+                <h3 class="text-sm tracking-widest uppercase mb-1">
+                  Baccarat Rouge 540
+                </h3>
+                <p class="text-gray-500 text-xs mb-2">30ml Eau de Parfum</p>
+                <p class="text-lg font-light">Maison Francis Kurkdjian</p>
+              </div>
+            </div>
+
+            <div
+              class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group"
+            >
+              <div
+                class="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center"
+              >
+                <img
+                  src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764148113/OIF_ihz95n.webp"
+                  alt="Amber Dreams Perfume"
+                  class="w-full h-full object-cover"
+                  width="300"
+                  height="300"
+                />
+              </div>
+              <div class="p-4">
+                <h3 class="text-sm tracking-widest uppercase mb-1">
+                  Club de Nuit Precieux I
+                </h3>
+                <p class="text-gray-500 text-xs mb-2">100ml Eau de Parfum</p>
+                <p class="text-lg font-light">Armaf</p>
+              </div>
+            </div>
+
+            <div
+              class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group"
+            >
+              <div
+                class="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center"
+              >
+                <img
+                  src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764151560/OIP_2_qczl4z.webp"
+                  alt="Jasmine Mist Perfume"
+                  class="w-full h-full object-cover"
+                  width="300"
+                  height="300"
+                />
+              </div>
+              <div class="p-4">
+                <h3 class="text-sm tracking-widest uppercase mb-1">9PM Edp</h3>
+                <p class="text-gray-500 text-xs mb-2">100ml Eau de Parfum</p>
+                <p class="text-lg font-light">Afnan</p>
+              </div>
+            </div>
+
+            <div
+              class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group"
+            >
+              <div
+                class="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center"
+              >
+                <img
+                  src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764158909/OIP_3_aqzp25.webp"
+                  alt="Sandalwood Essence Perfume"
+                  class="w-full h-full object-cover"
+                  width="300"
+                  height="300"
+                />
+              </div>
+              <div class="p-4">
+                <h3 class="text-sm tracking-widest uppercase mb-1">
+                  YSL Y Edp
+                </h3>
+                <p class="text-gray-500 text-xs mb-2">100ml Eau de Parfum</p>
+                <p class="text-lg font-light">Yves Saint Laurent</p>
+              </div>
+            </div>
+
+            <div
+              class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group"
+            >
+              <div
+                class="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center"
+              >
+                <img
+                  src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764159139/th_ezetfx.webp"
+                  alt="Ocean Breeze Perfume"
+                  class="w-full h-full object-cover"
+                  width="300"
+                  height="300"
+                />
+              </div>
+              <div class="p-4">
+                <h3 class="text-sm tracking-widest uppercase mb-1">
+                  Midnight Fantasy
+                </h3>
+                <p class="text-gray-500 text-xs mb-2">100ml Eau de Parfum</p>
+                <p class="text-lg font-light">Britney Spears</p>
+              </div>
+            </div>
+
+            <div
+              class="card-hover bg-gray-900 border border-gray-800 rounded-sm overflow-hidden group"
+            >
+              <div
+                class="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center"
+              >
+                <img
+                  src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764159262/download_dis1il.webp"
+                  alt="Leather & Spice Perfume"
+                  class="w-full h-full object-cover"
+                  width="300"
+                  height="300"
+                />
+              </div>
+              <div class="p-4">
+                <h3 class="text-sm tracking-widest uppercase mb-1">
+                  Stronger With You Absolutely
+                </h3>
+                <p class="text-gray-500 text-xs mb-2">100ml Eau de Parfum</p>
+                <p class="text-lg font-light">Emporio Armani</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="tab-content">
+        <div class="max-w-7xl mx-auto px-6 py-24">
+          <div class="text-center mb-16">
+            <p class="text-gray-500 tracking-[0.5em] uppercase text-xs mb-4">
+              Our Story
+            </p>
+            <h2
+              class="text-3xl md:text-4xl font-light tracking-[0.1em] uppercase"
+            >
+              About LCYS Co.ltd
+            </h2>
+          </div>
+
+          <div class="max-w-3xl mx-auto text-center mb-24">
+            <p class="text-gray-400 leading-loose text-lg mb-8">
+              LCYS Authentic Skincare was founded in 2022 as an online store. In
+              2024, we expanded by opening our first local store in Taunggyi. By
+              2025, we officially registered as LCYS Co., Ltd. and began
+              importing and retailing high-quality skincare and cosmetic
+              products, providing customers with the best possible service.
+            </p>
+            <p class="text-gray-400 leading-loose">
+              In December 2025, we are further expanding our business with the
+              launch of our perfume counter, where we will offer a curated
+              selection of luxury fragrances. With this new addition, LCYS aims
+              to deliver an even higher level of service and an enhanced
+              shopping experience for all our customers.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8 mb-24">
+            <div
+              class="card-hover bg-gray-900 border border-gray-800 rounded-sm p-8 text-center"
+            >
+              <div
+                class="w-16 h-16 mx-auto mb-6 border border-gray-700 rounded-full flex items-center justify-center"
+              >
+                <svg
+                  class="w-8 h-8 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1"
+                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-lg tracking-widest uppercase mb-3">
+                Artisan Crafted
+              </h3>
+              <p class="text-gray-500 text-sm leading-relaxed">
+                Every fragrance is hand-blended by master perfumers with decades
+                of experience.
+              </p>
+            </div>
+
+            <div
+              class="card-hover bg-gray-900 border border-gray-800 rounded-sm p-8 text-center"
+            >
+              <div
+                class="w-16 h-16 mx-auto mb-6 border border-gray-700 rounded-full flex items-center justify-center"
+              >
+                <svg
+                  class="w-8 h-8 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1"
+                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-lg tracking-widest uppercase mb-3">
+                Sustainably Sourced
+              </h3>
+              <p class="text-gray-500 text-sm leading-relaxed">
+                We partner with ethical suppliers who share our commitment to
+                environmental responsibility.
+              </p>
+            </div>
+
+            <div
+              class="card-hover bg-gray-900 border border-gray-800 rounded-sm p-8 text-center"
+            >
+              <div
+                class="w-16 h-16 mx-auto mb-6 border border-gray-700 rounded-full flex items-center justify-center"
+              >
+                <svg
+                  class="w-8 h-8 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-lg tracking-widest uppercase mb-3">
+                Made with Love
+              </h3>
+              <p class="text-gray-500 text-sm leading-relaxed">
+                Passion drives everything we do, from creation to the moment you
+                experience our scents.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-900 border border-gray-800 rounded-sm p-8 md:p-12 text-center"
+          >
+            <h3 class="text-2xl tracking-widest uppercase mb-4">
+              Get in Touch
+            </h3>
+            <p class="text-gray-500 mb-8 max-w-lg mx-auto">
+              Have questions about our items or need personalized
+              recommendations? Our fragrance experts are here to help.
+            </p>
+            <div
+              class="flex flex-col md:flex-row gap-4 justify-center items-center"
+            >
+              <a
+                href="mailto:hello@scentedaura.com"
+                class="text-gray-400 hover:text-white transition-colors tracking-widest"
+              >
+                lcys.myanmar@gmail.com
+              </a>
+              <span class="hidden md:inline text-gray-700">|</span>
+              <span class="text-gray-400 tracking-widest">+95944406646</span>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="border-t border-gray-800 py-12">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8 mb-12">
-                <div>
-                    <div class="flex items-center gap-3 mb-6">
-                        <img class="logozz" src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764139790/viber_image_2025-11-26_13-17-03-201-removebg-preview_slaryw.png"></img>
-                        <span class="text-sm tracking-[0.2em] uppercase text-gray-400">LCYS Authentic Skincare and Perfume</span>
-                    </div>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Luxury products for the discerning individual.
-                    </p>
-                </div>
-                
-                <div>
-                    <h4 class="text-sm tracking-[0.2em] uppercase mb-4">Shop</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">All Fragrances</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">New Arrivals</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Gift Sets</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Travel Sizes</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-sm tracking-[0.2em] uppercase mb-4">Support</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Contact Us</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Shipping</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Returns</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">FAQ</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-sm tracking-[0.2em] uppercase mb-4">Connect</h4>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 border border-gray-800 rounded-full flex items-center justify-center hover:border-gray-600 transition-colors">
-                            <svg class="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 border border-gray-800 rounded-full flex items-center justify-center hover:border-gray-600 transition-colors">
-                            <svg class="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 border border-gray-800 rounded-full flex items-center justify-center hover:border-gray-600 transition-colors">
-                            <svg class="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <img
+                class="logozz"
+                src="https://res.cloudinary.com/ddcajhrrl/image/upload/v1764139790/viber_image_2025-11-26_13-17-03-201-removebg-preview_slaryw.png"
+              />
+              <span class="text-sm tracking-[0.2em] uppercase text-gray-400"
+                >LCYS Authentic Skincare and Perfume</span
+              >
             </div>
-            
-            <div class="border-t border-gray-800 pt-8 text-center">
-                <p class="text-gray-600 text-xs tracking-widest">
-                    © 2025 LCYS Co.ltd. All rights reserved.
-                </p>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Luxury products for the discerning individual.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-sm tracking-[0.2em] uppercase mb-4">Shop</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-300 text-sm transition-colors"
+                  >All Fragrances</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-300 text-sm transition-colors"
+                  >New Arrivals</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-300 text-sm transition-colors"
+                  >Gift Sets</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-300 text-sm transition-colors"
+                  >Travel Sizes</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-sm tracking-[0.2em] uppercase mb-4">Support</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-300 text-sm transition-colors"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-300 text-sm transition-colors"
+                  >Shipping</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-300 text-sm transition-colors"
+                  >Returns</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-300 text-sm transition-colors"
+                  >FAQ</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-sm tracking-[0.2em] uppercase mb-4">Connect</h4>
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="w-10 h-10 border border-gray-800 rounded-full flex items-center justify-center hover:border-gray-600 transition-colors"
+              >
+                <svg
+                  class="w-4 h-4 text-gray-500"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 border border-gray-800 rounded-full flex items-center justify-center hover:border-gray-600 transition-colors"
+              >
+                <svg
+                  class="w-4 h-4 text-gray-500"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 border border-gray-800 rounded-full flex items-center justify-center hover:border-gray-600 transition-colors"
+              >
+                <svg
+                  class="w-4 h-4 text-gray-500"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"
+                  />
+                </svg>
+              </a>
             </div>
+          </div>
         </div>
+
+        <div class="border-t border-gray-800 pt-8 text-center">
+          <p class="text-gray-600 text-xs tracking-widest">
+            © 2025 LCYS Co.ltd. All rights reserved.
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script>
-        function showTab(tabId) {
-            // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Remove active class from all nav links
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            // Show selected tab
-            document.getElementById(tabId).classList.add('active');
-            
-            // Add active class to clicked nav link
-            document.querySelectorAll(`[data-tab="${tabId}"]`).forEach(link => {
-                link.classList.add('active');
-            });
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+      function showTab(tabId) {
+        // Hide all tabs
+        document.querySelectorAll(".tab-content").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        // Remove active class from all nav links
+        document.querySelectorAll(".nav-link").forEach((link) => {
+          link.classList.remove("active");
+        });
+
+        // Show selected tab
+        document.getElementById(tabId).classList.add("active");
+
+        // Add active class to clicked nav link
+        document.querySelectorAll(`[data-tab="${tabId}"]`).forEach((link) => {
+          link.classList.add("active");
+        });
+
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function toggleMobileMenu() {
+        const menu = document.getElementById("mobileMenu");
+        menu.classList.toggle("hidden");
+      }
+
+      function initScratchCard() {
+        const used = localStorage.getItem("promoUsed");
+        const savedDiscount = localStorage.getItem("promoDiscount");
+
+        const canvas = document.getElementById("scratch");
+        if (!canvas) return; // safety check
+
+        const ctx = canvas.getContext("2d");
+        const resultText = document.getElementById("resultText");
+
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+
+        // If user already redeemed
+        if (used === "yes") {
+          if (canvas) canvas.style.display = "none";
+          resultText.innerHTML = `You have already claimed <span style="color:#d4af37;">${savedDiscount}%</span> off. 🎉`;
+          resultText.classList.add("show");
+          return;
         }
-        
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
+        const discounts = [3, 5, 7];
+        const randomDiscount =
+          discounts[Math.floor(Math.random() * discounts.length)];
+
+        ctx.fillStyle = "gray";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        let isDrawing = false;
+
+        function startScratch(e) {
+          isDrawing = true;
         }
-        
-        function initScratchCard() {
-  const discounts = [3, 5, 7];
-  const randomDiscount = discounts[Math.floor(Math.random() * discounts.length)];
 
-  const canvas = document.getElementById("scratch");
-  if (!canvas) return; // safety check
+        function endScratch() {
+          isDrawing = false;
+        }
 
-  const ctx = canvas.getContext("2d");
-  const resultText = document.getElementById("resultText");
+        ctx.globalCompositeOperation = "destination-out";
+        function scratch(e) {
+          if (!isDrawing) return;
+          e.preventDefault();
 
-  canvas.width = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
+          const pos = getPointerPos(e);
 
-  ctx.fillStyle = "gray";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.beginPath();
+          ctx.arc(pos.x, pos.y, 20, 0, Math.PI * 2);
+          ctx.fill();
+        }
 
-  let isDrawing = false;
+        function checkReveal() {
+          const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          let transparentPixels = 0;
 
-  canvas.addEventListener("mousedown", () => (isDrawing = true));
-  canvas.addEventListener("mouseup", () => (isDrawing = false));
-  canvas.addEventListener("mousemove", scratch);
-  
-  canvas.addEventListener('touchstart', startScratch, { passive: false });
-  canvas.addEventListener('touchmove', scratch, { passive: false });
-  canvas.addEventListener('touchend', endScratch, { passive: false });
-  
+          for (let i = 3; i < imageData.data.length; i += 4) {
+            if (imageData.data[i] === 0) transparentPixels++; // alpha channel
+          }
 
-function scratch(e) {
-    e.preventDefault(); // very important
-    const pos = getPointerPos(e);
-    // ... your scratching logic
-}
-function getPointerPos(e) {
-    let rect = canvas.getBoundingClientRect();
-    let x, y;
+          const percent =
+            (transparentPixels / (canvas.width * canvas.height)) * 100;
 
-    if (e.touches) {
-        x = e.touches[0].clientX - rect.left;
-        y = e.touches[0].clientY - rect.top;
-    } else {
-        x = e.clientX - rect.left;
-        y = e.clientY - rect.top;
-    }
-    return { x, y };
-}
+          if (percent > 50) {
+            canvas.style.display = "none";
+            resultText.innerHTML = `Congratulations! You won <span style="color:#d4af37;">${randomDiscount}%</span> off! 🎉`;
+            resultText.classList.add("show");
+            localStorage.setItem("promoUsed", "yes");
+            localStorage.setItem("promoDiscount", randomDiscount);
+          } else {
+            requestAnimationFrame(checkReveal);
+          }
+        }
 
-canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+        canvas.addEventListener("mousedown", startScratch);
+        canvas.addEventListener("mouseup", endScratch);
+        canvas.addEventListener("mousemove", scratch);
 
+        canvas.addEventListener("touchstart", startScratch, { passive: false });
+        canvas.addEventListener("touchmove", scratch, { passive: false });
+        canvas.addEventListener("touchend", endScratch, { passive: false });
 
+        function getPointerPos(e) {
+          let rect = canvas.getBoundingClientRect();
+          let x, y;
 
+          if (e.touches) {
+            x = e.touches[0].clientX - rect.left;
+            y = e.touches[0].clientY - rect.top;
+          } else {
+            x = e.clientX - rect.left;
+            y = e.clientY - rect.top;
+          }
 
-  //------
-  function getPointerPos(e) {
-  if (e.touches) {
-    return { x: e.touches[0].clientX, y: e.touches[0].clientY };
-  } else {
-    return { x: e.clientX, y: e.clientY };
-  }
-}
+          return { x, y };
+        }
 
-
-
-  function scratch(e) {
-    if (!isDrawing) return;
-    const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    ctx.globalCompositeOperation = "destination-out";
-    ctx.beginPath();
-    ctx.arc(x, y, 20, 0, Math.PI * 2);
-    ctx.fill();
-
-    checkReveal();
-  }
-
-  function checkReveal() {
-    const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-    let cleared = 0;
-
-    for (let i = 3; i < pixels.length; i += 4) {
-      if (pixels[i] === 0) cleared++;
-    }
-
-    const percent = cleared / (pixels.length / 4) * 100;
-
-    if (percent > 55) {
-      canvas.style.display = "none";
-      resultText.innerHTML = `
-         Congratulations! You won 
-        <span style="color:#d4af37;">${randomDiscount}%</span> off!🎉
-        <br><br>Screenshot to claim your reward.
-      `;
-      resultText.classList.add("show");
-    }
-  }
-}
-
-// Run ONLY when promotions tab is opened
-document.querySelector('[data-tab="promotions"]').addEventListener("click", () => {
-  setTimeout(initScratchCard, 300);
-});
+        requestAnimationFrame(checkReveal);
+      }
+      // Run ONLY when promotions tab is opened
+      document
+        .querySelector('[data-tab="promotions"]')
+        .addEventListener("click", () => {
+          setTimeout(initScratchCard, 300);
+        });
     </script>
-</body>
+  </body>
 </html>
