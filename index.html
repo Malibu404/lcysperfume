@@ -1161,82 +1161,44 @@
         const savedDiscount = localStorage.getItem("promoDiscount");
 
         const canvas = document.getElementById("scratch");
-        if (!canvas) return; // safety check
-
-        const ctx = canvas.getContext("2d");
         const resultText = document.getElementById("resultText");
 
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
+        if (!canvas || !resultText) return;
 
-        // If user already redeemed
+        const ctx = canvas.getContext("2d");
+
+        // ------------------------------
+        // 1. USER ALREADY CLAIMED PROMO
+        // ------------------------------
         if (used === "yes") {
-          if (canvas) canvas.style.display = "none";
-          resultText.innerHTML = `You have already claimed <span style="color:#d4af37;">${savedDiscount}%</span> off. 🎉`;
+          canvas.style.display = "none";
+          resultText.innerHTML = `You already claimed <span style="color:#d4af37;">${savedDiscount}%</span> off 🎉`;
           resultText.classList.add("show");
           return;
         }
+
+        // ------------------------------
+        // 2. NEW USER — GENERATE DISCOUNT
+        // ------------------------------
         const discounts = [3, 5, 7];
         const randomDiscount =
           discounts[Math.floor(Math.random() * discounts.length)];
 
+        // ------------------------------
+        // 3. SETUP CANVAS SIZE
+        // ------------------------------
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+
+        // Fill gray scratch layer
+        ctx.globalCompositeOperation = "source-over";
         ctx.fillStyle = "gray";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         let isDrawing = false;
 
-        function startScratch(e) {
-          isDrawing = true;
-        }
-
-        function endScratch() {
-          isDrawing = false;
-        }
-
-        ctx.globalCompositeOperation = "destination-out";
-        function scratch(e) {
-          if (!isDrawing) return;
-          e.preventDefault();
-
-          const pos = getPointerPos(e);
-
-          ctx.beginPath();
-          ctx.arc(pos.x, pos.y, 20, 0, Math.PI * 2);
-          ctx.fill();
-        }
-
-        function checkReveal() {
-          const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-          let transparentPixels = 0;
-
-          for (let i = 3; i < imageData.data.length; i += 4) {
-            if (imageData.data[i] === 0) transparentPixels++; // alpha channel
-          }
-
-          const percent =
-            (transparentPixels / (canvas.width * canvas.height)) * 100;
-
-          if (percent > 50) {
-            canvas.style.display = "none";
-            resultText.innerHTML = `Congratulations! You won <span style="color:#d4af37;">${randomDiscount}%</span> off! 🎉`;
-            resultText.classList.add("show");
-            localStorage.setItem("promoUsed", "yes");
-            localStorage.setItem("promoDiscount", randomDiscount);
-          } else {
-            requestAnimationFrame(checkReveal);
-          }
-        }
-
-        canvas.addEventListener("mousedown", startScratch);
-        canvas.addEventListener("mouseup", endScratch);
-        canvas.addEventListener("mousemove", scratch);
-
-        canvas.addEventListener("touchstart", startScratch, { passive: false });
-        canvas.addEventListener("touchmove", scratch, { passive: false });
-        canvas.addEventListener("touchend", endScratch, { passive: false });
-
-        function getPointerPos(e) {
-          let rect = canvas.getBoundingClientRect();
+        function getPos(e) {
+          const rect = canvas.getBoundingClientRect();
           let x, y;
 
           if (e.touches) {
@@ -1250,14 +1212,64 @@
           return { x, y };
         }
 
+        // ------------------------------
+        // 4. SCRATCH EVENTS
+        // ------------------------------
+        canvas.addEventListener("mousedown", () => (isDrawing = true));
+        canvas.addEventListener("mouseup", () => (isDrawing = false));
+        canvas.addEventListener("mouseleave", () => (isDrawing = false));
+
+        canvas.addEventListener("touchstart", () => (isDrawing = true));
+        canvas.addEventListener("touchend", () => (isDrawing = false));
+
+        ctx.globalCompositeOperation = "destination-out";
+
+        canvas.addEventListener("mousemove", scratch);
+        canvas.addEventListener("touchmove", scratch);
+
+        function scratch(e) {
+          if (!isDrawing) return;
+          e.preventDefault();
+
+          const pos = getPos(e);
+
+          ctx.beginPath();
+          ctx.arc(pos.x, pos.y, 25, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // ------------------------------
+        // 5. CHECK REVEAL PROGRESS
+        // ------------------------------
+        function checkReveal() {
+          const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+          let clearPixels = 0;
+
+          for (let i = 3; i < data.length; i += 4) {
+            if (data[i] === 0) clearPixels++;
+          }
+
+          const percent = (clearPixels / (canvas.width * canvas.height)) * 100;
+
+          if (percent >= 50) {
+            // hide scratch
+            canvas.style.display = "none";
+
+            // show reward
+            resultText.innerHTML = `Congratulations! You won <span style="color:#d4af37;">${randomDiscount}%</span> off 🎉`;
+            resultText.classList.add("show");
+
+            localStorage.setItem("promoUsed", "yes");
+            localStorage.setItem("promoDiscount", randomDiscount);
+          } else {
+            requestAnimationFrame(checkReveal);
+          }
+        }
+
         requestAnimationFrame(checkReveal);
       }
-      // Run ONLY when promotions tab is opened
-      document
-        .querySelector('[data-tab="promotions"]')
-        .addEventListener("click", () => {
-          setTimeout(initScratchCard, 300);
-        });
+
+      document.addEventListener("DOMContentLoaded", initScratchCard);
     </script>
   </body>
 </html>
