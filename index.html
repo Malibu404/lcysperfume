@@ -203,8 +203,9 @@
       }
 
       canvas {
-        touch-action: none; /* prevents default gestures */
-        -ms-touch-action: none;
+        touch-action: none;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
       }
     </style>
   </head>
@@ -1192,7 +1193,10 @@
 
         // Fill gray scratch layer
         ctx.globalCompositeOperation = "source-over";
-        ctx.fillStyle = "gray";
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Now draw the scratch layer
+        ctx.fillStyle = "#b8b8b8";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         let isDrawing = false;
