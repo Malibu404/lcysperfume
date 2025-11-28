@@ -1273,7 +1273,20 @@
         requestAnimationFrame(checkReveal);
       }
 
-      document.addEventListener("DOMContentLoaded", initScratchCard);
+      function showTab(tabId) {
+        document.querySelectorAll(".tab-content").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        document.getElementById(tabId).classList.add("active");
+
+        // <-- RUN SCRATCH INIT ONLY WHEN PROMOTIONS SHOWS
+        if (tabId === "promotions") {
+          setTimeout(initScratchCard, 300);
+        }
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     </script>
   </body>
 </html>
